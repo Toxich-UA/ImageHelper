@@ -1,0 +1,51 @@
+﻿<Window x:Class="ImageHelper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="367.999" Width="521.966" ResizeMode="NoResize">
+    <Grid>
+        <Button x:Name="BtnPickDirectory" Content="..." Click="BtnPickDirectory_OnClick" Margin="0,15,20,0" VerticalAlignment="Top" Height="23" HorizontalAlignment="Right" Width="23"/>
+        <Label Content="Sorce directory" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Height="26" Width="116"/>
+        <TextBox x:Name="DirectoryPath" Height="23" MaxLines="1" Margin="131,15,48,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <Label Content="File count" HorizontalAlignment="Left" Margin="17,71,0,0" VerticalAlignment="Top"/>
+        <Label Content="0" Name="FileCounter" HorizontalAlignment="Left" Margin="83,71,0,0" VerticalAlignment="Top"/>
+        <GroupBox Padding="5" HorizontalAlignment="Left" Margin="17,102,0,0" Width="477" Height="199" VerticalAlignment="Top" Header="Image size">
+
+
+            <Grid IsEnabled="{Binding IsChecked, ElementName=ChkEnableImageResize}">
+                <TextBox x:Name="CompresionPersent" TextWrapping="Wrap" Text="" Margin="0,26,55,0" MaxLines="1" IsUndoEnabled="True" PreviewTextInput="CompresionPersent_OnPreviewTextInput" Height="21" VerticalAlignment="Top" TextChanged="CompresionPersent_TextChanged"/>
+                <Label Content="Image compress percent" Margin="0,0,55,0" Height="26" VerticalAlignment="Top"/>
+                <Button Content="Start" Name="BtnStartImageResize" Click="BtnStartImageResize_Click" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="40"/>
+                <CheckBox Content="Make archive" Name="ChkMakeArchive" HorizontalAlignment="Left" Margin="0,54,0,0" VerticalAlignment="Top"/>
+                <TextBox IsEnabled="{Binding IsChecked, ElementName=ChkMakeArchive}" x:Name="ArchiveName" TextWrapping="Wrap" Text="" Margin="0,93,55,0" MaxLines="1" IsUndoEnabled="True" Height="21" VerticalAlignment="Top"/>
+                <Label Content="Archive name" Margin="0,69,55,0" Height="24" VerticalAlignment="Top"/>
+                <CheckBox Content="Name on images" Name="CheNameOnImages" HorizontalAlignment="Left" Margin="0,119,0,0" VerticalAlignment="Top" Width="109"/>
+
+            </Grid>
+        </GroupBox>
+        <Button x:Name="BtnPickDestDirectory" Content="..." Click="BtnPickDestDirectory_OnClick" Margin="0,43,20,0" VerticalAlignment="Top" Height="23" HorizontalAlignment="Right" Width="23"/>
+        <Label Content="Destination directory" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Height="26"/>
+        <TextBox x:Name="DestDirectoryPath" MaxLines="1" Height="23" Margin="131,43,48,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <ProgressBar Name="ProgressBar" HorizontalAlignment="Left" Height="15" Margin="31,269,0,0" VerticalAlignment="Top" Width="396"/>
+        <Button Name="BtnOpenLog" HorizontalAlignment="Left" Margin="17,306,0,0" VerticalAlignment="Top" Width="20" Height="20" Click="BtnOpenLog_Click">
+            <Image Height="16" Source="Icon_1-512.png" Stretch="Fill" Width="16" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <RichTextBox Name="Log" HorizontalAlignment="Left" Height="175" Margin="17,331,0,0" VerticalAlignment="Top" Width="477" Block.LineHeight="1" IsUndoEnabled="False" IsReadOnly="True">
+            <FlowDocument>
+                <Paragraph>
+                    <Run/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+    </Grid>
+</Window>
+
