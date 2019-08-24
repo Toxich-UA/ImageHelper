@@ -1,9 +1,5 @@
 ﻿using ImageHelper.ViewModel;
-using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media.Imaging;
-using Image = System.Drawing.Image;
 
 namespace ImageHelper
 {

@@ -18,7 +18,7 @@
         <StackPanel>
             <Image x:Name="ImageBox" HorizontalAlignment="Right" VerticalAlignment="Top">
                 <Image.OpacityMask>
-                    <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/1-001.jpg"/>
+                    <ImageBrush/>
                 </Image.OpacityMask>
             </Image>
         </StackPanel>

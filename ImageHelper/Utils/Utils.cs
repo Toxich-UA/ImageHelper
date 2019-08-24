@@ -1,16 +1,13 @@
-﻿using System;
-using System.Windows;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
-using Image = System.Drawing.Image;
-using FolderBrowserDialog = System.Windows.Forms.FolderBrowserDialog;
-using DialogResult = System.Windows.Forms.DialogResult;
-using FontStyle = System.Drawing.FontStyle;
-using Point = System.Drawing.Point;
-using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using DialogResult = System.Windows.Forms.DialogResult;
+using FolderBrowserDialog = System.Windows.Forms.FolderBrowserDialog;
+using FontStyle = System.Drawing.FontStyle;
+using Image = System.Drawing.Image;
+using Point = System.Drawing.Point;
 
 namespace ImageHelper.ViewModel
 {
@@ -33,7 +30,7 @@ namespace ImageHelper.ViewModel
             Brush textBrush = new SolidBrush(textColor);
 
             GraphicsPath Pen = new GraphicsPath();
-            Pen.AddString(text, FontFamily.GenericSansSerif, (int)FontStyle.Regular, drawing.DpiY * size / 72, point, new StringFormat());
+            Pen.AddString(text, new FontFamily("Arial"), (int)FontStyle.Regular, drawing.DpiY * size / 72, point, new StringFormat());
 
             drawing.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
             drawing.SmoothingMode = SmoothingMode.AntiAlias;
@@ -96,8 +93,7 @@ namespace ImageHelper.ViewModel
             int destWidth = (int)(imgPhoto.Width * nPercent);
             int destHeight = (int)(imgPhoto.Height * nPercent);
 
-            Bitmap bmPhoto = new Bitmap(destWidth, destHeight,
-                                     PixelFormat.Format24bppRgb);
+            Bitmap bmPhoto = new Bitmap(destWidth, destHeight, PixelFormat.Format24bppRgb);
             bmPhoto.SetResolution(imgPhoto.HorizontalResolution * nPercent, imgPhoto.VerticalResolution * nPercent);
 
             using (Graphics grPhoto = Graphics.FromImage(bmPhoto))
@@ -107,7 +103,7 @@ namespace ImageHelper.ViewModel
 
                 if (placeName)
                 {
-                    DrawText("TEST", bmPhoto);
+                    DrawText(Path.GetFileNameWithoutExtension(file), bmPhoto);
                 }
             }
 

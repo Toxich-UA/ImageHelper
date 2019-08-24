@@ -1,7 +1,7 @@
-﻿using System.Windows;
-using System.Windows.Input;
-using ImageHelper.ViewModel;
+﻿using ImageHelper.ViewModel;
 using System.Text.RegularExpressions;
+using System.Windows;
+using System.Windows.Input;
 
 namespace ImageHelper
 {

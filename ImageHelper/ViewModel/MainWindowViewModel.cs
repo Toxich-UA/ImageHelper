@@ -88,7 +88,7 @@ namespace ImageHelper.ViewModel
                 }
             }
         }
-        
+
 
         #endregion
 
@@ -210,7 +210,7 @@ namespace ImageHelper.ViewModel
                 process.Start();
 
 
-                
+
                 //log.AppendText("Work done.\n ");
                 //log.AppendText("=====================\n ");
             }
@@ -222,8 +222,8 @@ namespace ImageHelper.ViewModel
             //Test test = new Test();
             //test.Show();
         }
-        
-        
+
+
 
 
 
